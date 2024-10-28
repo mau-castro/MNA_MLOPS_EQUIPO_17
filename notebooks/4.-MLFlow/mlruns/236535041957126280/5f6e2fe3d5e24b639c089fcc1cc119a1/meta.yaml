@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/Usuario/Desktop/Maestria/4.-Trimestre/MNA/MLops-Equipo/notebooks/4.-MLFlow/mlruns/236535041957126280/5f6e2fe3d5e24b639c089fcc1cc119a1/artifacts
+end_time: 1730079411595
+entry_point_name: ''
+experiment_id: '236535041957126280'
+lifecycle_stage: active
+run_id: 5f6e2fe3d5e24b639c089fcc1cc119a1
+run_name: Decision_Tree
+run_uuid: 5f6e2fe3d5e24b639c089fcc1cc119a1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730079409828
+status: 3
+tags: []
+user_id: Usuario

@@ -1,0 +1,89 @@
+schema: '2.0'
+stages:
+  load_data:
+    cmd: python src/load_data.py "D:/Cursos/Maestria - IA 
+      Aplicada/MLOps/Proyecto/MLOPS-MNA-Equipo-17/data1/raw/TCGA_GBM_LGG_Mutations_all.csv"
+      "data1/processed/train_test_data.csv"
+    deps:
+    - path: data1\raw\TCGA_GBM_LGG_Mutations_all.csv
+      hash: md5
+      md5: 611d22420c5d0651409a19262a623424
+      size: 264750
+    - path: src/load_data.py
+      hash: md5
+      md5: 92f6a96a879e18ef79adc702db997efa
+      size: 315
+    outs:
+    - path: data1/processed/train_test_data.csv
+      hash: md5
+      md5: f0d645f40024b63b937182b3103171ba
+      size: 264747
+  preprocess:
+    cmd: python src/preprocess_data.py data1/processed/train_test_data.csv data1/processed/X_train.csv
+      data1/processed/X_test.csv data1/processed/y_train.csv data1/processed/y_test.csv
+    deps:
+    - path: data1/processed/train_test_data.csv
+      hash: md5
+      md5: f0d645f40024b63b937182b3103171ba
+      size: 264747
+    - path: src/preprocess_data.py
+      hash: md5
+      md5: dedc5fd33470406c1721186d6bf65238
+      size: 5219
+    outs:
+    - path: data1/processed/X_test.csv
+      hash: md5
+      md5: 715745ca00fc381fec85f89f7d7d75ee
+      size: 14345
+    - path: data1/processed/X_train.csv
+      hash: md5
+      md5: 26e23c0e80b1db161b673c719c48abd2
+      size: 33062
+    - path: data1/processed/y_test.csv
+      hash: md5
+      md5: 2ac982e1ab14ebde8ef56b8fc0d73fc7
+      size: 781
+    - path: data1/processed/y_train.csv
+      hash: md5
+      md5: 43380155db876d4c71d07594c39f7f1b
+      size: 1804
+  train:
+    cmd: python src/train.py data1/processed/X_train.csv data1/processed/y_train.csv
+      models/model.pkl
+    deps:
+    - path: data1/processed/X_train.csv
+      hash: md5
+      md5: 26e23c0e80b1db161b673c719c48abd2
+      size: 33062
+    - path: data1/processed/y_train.csv
+      hash: md5
+      md5: 43380155db876d4c71d07594c39f7f1b
+      size: 1804
+    - path: src/train.py
+      hash: md5
+      md5: effe03eb7afd4fdca9f7a96c278ce4a6
+      size: 3015
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: c00b27d62e3a327828f082ec9b5ee22b
+      size: 193401
+  evaluate:
+    cmd: python src/evaluate.py models/model.pkl data1/processed/X_test.csv data1/processed/y_test.csv
+    deps:
+    - path: data1/processed/X_test.csv
+      hash: md5
+      md5: 715745ca00fc381fec85f89f7d7d75ee
+      size: 14345
+    - path: data1/processed/y_test.csv
+      hash: md5
+      md5: 2ac982e1ab14ebde8ef56b8fc0d73fc7
+      size: 781
+    - path: models/model.pkl
+      hash: md5
+      md5: c00b27d62e3a327828f082ec9b5ee22b
+      size: 193401
+    - path: src/evaluate.py
+      hash: md5
+      md5: 2dd86af5739babee502073cbdceda81e
+      size: 1063

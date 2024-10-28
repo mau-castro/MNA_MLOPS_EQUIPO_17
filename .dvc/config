@@ -1,0 +1,5 @@
+[core]
+    autostage = true
+    remote = local_remote
+['remote "local_remote"']
+    url = D:\Cursos\Maestria - IA Aplicada\MLOps\Proyecto\DVC_STORAGE

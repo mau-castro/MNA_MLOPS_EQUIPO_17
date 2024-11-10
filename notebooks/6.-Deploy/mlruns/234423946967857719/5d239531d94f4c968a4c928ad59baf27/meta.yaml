@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/Desktop/Maestria/4.-Trimestre/MNA/MLOPS_Equipo_41/notebooks/6.-Deploy/mlruns/234423946967857719/5d239531d94f4c968a4c928ad59baf27/artifacts
+end_time: 1731278024492
+entry_point_name: ''
+experiment_id: '234423946967857719'
+lifecycle_stage: active
+run_id: 5d239531d94f4c968a4c928ad59baf27
+run_name: Logistic_Regression
+run_uuid: 5d239531d94f4c968a4c928ad59baf27
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731278021687
+status: 3
+tags: []
+user_id: Usuario
